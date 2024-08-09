@@ -1,14 +1,46 @@
 <template>
-  <button>back</button>
+  <div>
+    <button @click="onNavigate(-1)">back</button>
+    这是Base页
+  </div>
   <div class="info">这是示例-Html</div>
 </template>
 
 <script setup>
+import router from '@/router.js'
 import * as three from 'three'
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { onBeforeUnmount } from 'vue';
 
+const onNavigate = (num) => {
+    switch (num) {
+        case -1:
+            router.go(-1)
+            break;
+    }
+}
+
+function onRouteChange() {
+  // 将对象从场景中移除
+  while(scene.children.length > 0){
+    const object = scene.children[0];
+    scene.remove(object); // 移除场景中的物体
+    // 如果有几何体和材质，也进行清理
+    if (object.geometry) object.geometry.dispose();
+    if (object.material) object.material.dispose();
+  }
+  // 取消挂载scene
+  document.body.removeChild(renderer.domElement)
+}
+
+// 路由变化时的清理函数
+onBeforeUnmount(()=>{
+  onRouteChange();
+})
+
+// Three
 // 场景
 const scene = new three.Scene();
 // 透视摄像机 视野角度（FOV，可见范围） 长宽比（宽/高） 近截面和远截面
@@ -87,9 +119,6 @@ loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
   text.position.set(0, 0, 6);
   scene.add(text);
 });
-
-
-
 
 scene.add(cube);
 scene.add(...lines);

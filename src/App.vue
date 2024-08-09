@@ -1,7 +1,4 @@
 <template>
-  <Index />
+  <RouterView />
 </template>
-
-<script setup>
-import Index from '@/Page/indexPage'
-</script>
+ 
