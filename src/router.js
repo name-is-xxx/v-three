@@ -12,6 +12,16 @@ const routes = [
     name: "Base",
     component: () => import("@/Page/base.vue"),
   },
+  {
+    path: "/vision",
+    name: "Vision Training",
+    component: () => import("@/Page/eyes/visionTraining.vue"),
+  },
+  {
+    path: "/near-far",
+    name: "Near far training",
+    component: () => import("@/Page/eyes/near-far.vue"),
+  },
 ];
 
 const router = createRouter({
