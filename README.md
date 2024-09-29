@@ -1,4 +1,4 @@
-# three
+# three+vue （ps.由于没有后台，所以所有的的资源全部放在public里）
 
 ## Project setup
 
