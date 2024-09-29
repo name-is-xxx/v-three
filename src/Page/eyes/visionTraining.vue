@@ -2,6 +2,8 @@
   <div class="info">这是视力训练Home页</div>
   <button @click="onNavigate(1)">Home页</button>
   <button @click="onNavigate(2)">远近训练</button>
+  <button @click="onNavigate(3)">眼保健操</button>
+  <button @click="onNavigate(4)">对焦练习</button>
 </template>
 
 <script setup>
@@ -17,6 +19,16 @@ const onNavigate = (num) => {
     case 2:
       router.push({
         path: "/near-far",
+      });
+      break;
+    case 3:
+      router.push({
+        path: "/eye-exercises",
+      });
+      break;
+    case 4:
+      router.push({
+        path: "/focus-exercise",
       });
       break;
   }
