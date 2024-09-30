@@ -3,7 +3,7 @@
   <button @click="onNavigate(1)">Home页</button>
   <button @click="onNavigate(2)">远近训练</button>
   <button @click="onNavigate(3)">眼保健操</button>
-  <button @click="onNavigate(4)">对焦练习</button>
+  <button @click="onNavigate(4)">追踪训练</button>
 </template>
 
 <script setup>
